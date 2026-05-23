@@ -8,38 +8,45 @@
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
- 
+
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursor-ring"></div>
 <canvas id="bg-canvas"></canvas>
- 
+
 <nav>
   <div class="logo">PORTFOLIO</div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#resume">Resume</a></li><li><a href="#contact">Contact</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
- 
+
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-tag" id="hero-tag"></div>
-  <h1 class="hero-name">Gowri<br/>Krishna</h1>
-  <p class="hero-sub">
-    Building things at the intersection of<br/>
-    <strong>AI, data, and real-world impact.</strong>
-  </p>
-  <div class="hero-cta">
-    <a href="#projects" class="btn btn-primary">View Projects</a>
-    <a href="mailto:gowrikrishna985@gmail.com" class="btn btn-outline">Get in Touch</a>
+  <div class="hero-left">
+    <div class="hero-tag" id="hero-tag"></div>
+    <h1 class="hero-name">Gowri<br/>Krishna</h1>
+    <p class="hero-sub">
+      Building things at the intersection of<br/>
+      <strong>AI, data, and real-world impact.</strong>
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="mailto:gowrikrishna985@gmail.com" class="btn btn-outline">Get in Touch</a>
+    </div>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll to explore
+    </div>
   </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    Scroll to explore
+  <div class="hero-right">
+    <canvas id="nn-canvas"></canvas>
+    <div class="nn-label">Neural Network</div>
   </div>
 </section>
- 
+
 <!-- ABOUT -->
 <section id="about">
   <div class="about-inner reveal">
@@ -81,7 +88,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- PROJECTS -->
 <section id="projects">
   <div class="reveal">
@@ -89,7 +96,7 @@
     <h2 class="section-title">Projects<span>.</span></h2>
   </div>
   <div class="projects-grid">
- 
+
     <a class="project-card reveal" href="https://github.com/gowrikrishna985/Handwriting-Robot" target="_blank">
       <div class="project-num">01 ——
         <span class="gh-icon">
@@ -106,7 +113,7 @@
         <span class="tag purple">Stepper Motors</span>
       </div>
     </a>
- 
+
     <a class="project-card reveal" href="https://github.com/gowrikrishna985/Detoxify" target="_blank">
       <div class="project-num">02 ——
         <span class="gh-icon">
@@ -123,7 +130,7 @@
         <span class="tag">Full-Stack</span>
       </div>
     </a>
- 
+
     <a class="project-card reveal" href="https://github.com/gowrikrishna985/Navisense-AI" target="_blank">
       <div class="project-num">03 ——
         <span class="gh-icon">
@@ -140,7 +147,7 @@
         <span class="tag">Google Maps API</span>
       </div>
     </a>
- 
+
     <div class="project-card reveal" style="opacity:0.6; cursor:default;">
       <div class="project-num">04 ——</div>
       <div class="coming-soon-badge">Coming Soon</div>
@@ -152,7 +159,7 @@
         <span class="tag purple">IoT</span>
       </div>
     </div>
- 
+
     <a class="project-card reveal" href="https://github.com/gowrikrishna985/Patient_dashboard" target="_blank">
       <div class="project-num">05 ——
         <span class="gh-icon">
@@ -168,7 +175,7 @@
         <span class="tag">Dashboard UI</span>
       </div>
     </a>
- 
+
     <a class="project-card reveal" href="https://github.com/gowrikrishna985/FDS-project" target="_blank">
       <div class="project-num">06 ——
         <span class="gh-icon">
@@ -184,10 +191,10 @@
         <span class="tag green">Data Pipeline</span>
       </div>
     </a>
- 
+
   </div>
 </section>
- 
+
 <!-- RESUME -->
 <section id="resume">
   <div class="resume-wrap reveal">
@@ -211,7 +218,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-wrap reveal">
@@ -234,11 +241,11 @@
     </div>
   </div>
 </section>
- 
+
 <footer>
   <p>Gowri Krishna &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; <span style="color:var(--accent)">AI & DS Portfolio</span></p>
 </footer>
- 
+
 <script src="script.js"></script>
 </body>
 </html>
