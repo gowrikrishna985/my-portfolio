@@ -47,22 +47,3 @@ const dlBtn = document.getElementById('resume-download');
 if(dlBtn) dlBtn.href = pdfDataUrl;
 const ntBtn = document.getElementById('resume-newtab');
 if(ntBtn) ntBtn.href = pdfDataUrl;
-
-// Theme Toggle
-const themeToggle = document.getElementById('theme-toggle');
-const html = document.documentElement;
-
-// Check for saved theme preference or default to dark mode
-const currentTheme = localStorage.getItem('theme') || 'dark';
-if (currentTheme === 'light') {
-  html.classList.add('light-mode');
-  themeToggle.textContent = '☀️';
-}
-
-// Add click event to toggle theme
-themeToggle.addEventListener('click', () => {
-  html.classList.toggle('light-mode');
-  const isLight = html.classList.contains('light-mode');
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  themeToggle.textContent = isLight ? '☀️' : '🌙';
-});
