@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gowri Krishna | AI & DS Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+ 
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+<canvas id="bg-canvas"></canvas>
+ 
+<nav>
+  <div class="logo">PORTFOLIO</div>
+  <div class="nav-container">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+  </div>
+</nav>
+ 
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-tag" id="hero-tag"></div>
+  <h1 class="hero-name">Gowri<br/>Krishna</h1>
+  <p class="hero-sub">
+    Building things at the intersection of<br/>
+    <strong>AI, data, and real-world impact.</strong>
+  </p>
+  <div class="hero-cta">
+    <a href="#projects" class="btn btn-primary">View Projects</a>
+    <a href="mailto:gowrikrishna985@gmail.com" class="btn btn-outline">Get in Touch</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+ 
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner reveal">
+    <div>
+      <h2 class="about-headline">A builder who<br/>loves <span>smart</span> systems.</h2>
+      <p class="about-bio">
+        3rd-year <strong>AI & DS</strong> undergrad from Kerala, obsessed with making machines that think, create, and act. From CNC robots to NLP pipelines — I turn ideas into working things.
+      </p>
+    </div>
+    <div class="about-right">
+      <div class="about-pill">
+        <div class="pill-icon">🎓</div>
+        <div>
+          <div class="pill-label">Studying at</div>
+          <div class="pill-value">Muthoot Institute of Technology, Ernakulam</div>
+        </div>
+      </div>
+      <div class="about-pill">
+        <div class="pill-icon">📅</div>
+        <div>
+          <div class="pill-label">B.Tech since</div>
+          <div class="pill-value">2023 — Present · AI & DS</div>
+        </div>
+      </div>
+      <div class="about-pill">
+        <div class="pill-icon">💻</div>
+        <div>
+          <div class="pill-label">Core stack</div>
+          <div class="pill-value">Python · C · Flask · FastAPI · ML/DL</div>
+        </div>
+      </div>
+      <div class="about-pill">
+        <div class="pill-icon">📍</div>
+        <div>
+          <div class="pill-label">Based in</div>
+          <div class="pill-value">Alappuzha, Kerala, India</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="reveal">
+    <div class="section-label">// what i've built</div>
+    <h2 class="section-title">Projects<span>.</span></h2>
+  </div>
+  <div class="projects-grid">
+ 
+    <a class="project-card reveal" href="https://github.com/gowrikrishna985/Handwriting-Robot" target="_blank">
+      <div class="project-num">01 ——
+        <span class="gh-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub ↗
+        </span>
+      </div>
+      <h3 class="project-title">Handwriting Machine Robot</h3>
+      <p class="project-desc">CNC-controlled robot that replicates personalised handwriting. Uses computer vision for stroke extraction, then drives stepper motors via G-code generation.</p>
+      <div class="project-tags">
+        <span class="tag">G-code</span>
+        <span class="tag">CNC / UGS</span>
+        <span class="tag green">Computer Vision</span>
+        <span class="tag purple">Stepper Motors</span>
+      </div>
+    </a>
+ 
+    <a class="project-card reveal" href="https://github.com/gowrikrishna985/Detoxify" target="_blank">
+      <div class="project-num">02 ——
+        <span class="gh-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub ↗
+        </span>
+      </div>
+      <h3 class="project-title">Detoxify</h3>
+      <p class="project-desc">Full-stack Flask app powered by a pretrained RoBERTa model that detects and classifies toxic language in YouTube comments, with filtering and PDF report export.</p>
+      <div class="project-tags">
+        <span class="tag purple">RoBERTa NLP</span>
+        <span class="tag">Flask</span>
+        <span class="tag green">PDF Reports</span>
+        <span class="tag">Full-Stack</span>
+      </div>
+    </a>
+ 
+    <a class="project-card reveal" href="https://github.com/gowrikrishna985/Navisense-AI" target="_blank">
+      <div class="project-num">03 ——
+        <span class="gh-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub ↗
+        </span>
+      </div>
+      <h3 class="project-title">Navisense AI</h3>
+      <p class="project-desc">Intelligent navigation assistant using LSTM networks and FastAPI. Integrates Google Maps and OpenWeather APIs with Redis caching for real-time route and weather intelligence.</p>
+      <div class="project-tags">
+        <span class="tag purple">LSTM</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag green">Redis</span>
+        <span class="tag">Google Maps API</span>
+      </div>
+    </a>
+ 
+    <div class="project-card reveal" style="opacity:0.6; cursor:default;">
+      <div class="project-num">04 ——</div>
+      <div class="coming-soon-badge">Coming Soon</div>
+      <h3 class="project-title">Earthquake Detection Bot</h3>
+      <p class="project-desc">IoT device using a vibration sensor to detect seismic activity and instantly push real-time alerts to users via the Telegram Bot API. Repository uploading soon.</p>
+      <div class="project-tags">
+        <span class="tag">Vibration Sensor</span>
+        <span class="tag green">Telegram API</span>
+        <span class="tag purple">IoT</span>
+      </div>
+    </div>
+ 
+    <a class="project-card reveal" href="https://github.com/gowrikrishna985/Patient_dashboard" target="_blank">
+      <div class="project-num">05 ——
+        <span class="gh-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub ↗
+        </span>
+      </div>
+      <h3 class="project-title">Patient DBMS Dashboard</h3>
+      <p class="project-desc">Relational database system with a clean patient management dashboard — handling records, queries, and structured data relationships for a healthcare scenario.</p>
+      <div class="project-tags">
+        <span class="tag">DBMS</span>
+        <span class="tag green">SQL</span>
+        <span class="tag">Dashboard UI</span>
+      </div>
+    </a>
+ 
+    <a class="project-card reveal" href="https://github.com/gowrikrishna985/FDS-project" target="_blank">
+      <div class="project-num">06 ——
+        <span class="gh-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub ↗
+        </span>
+      </div>
+      <h3 class="project-title">Data Science Pipeline</h3>
+      <p class="project-desc">End-to-end data science workflow covering ingestion, cleaning, exploratory analysis, and preprocessing — the groundwork for building production-ready ML models.</p>
+      <div class="project-tags">
+        <span class="tag purple">Pandas / NumPy</span>
+        <span class="tag">EDA</span>
+        <span class="tag green">Data Pipeline</span>
+      </div>
+    </a>
+ 
+  </div>
+</section>
+ 
+<!-- RESUME -->
+<section id="resume">
+  <div class="resume-wrap reveal">
+    <div class="section-label">// my resume</div>
+    <h2 class="section-title">Resume<span>.</span></h2>
+    <div class="resume-toolbar">
+      <p style="color:var(--muted);font-size:0.88rem;">View or download my latest resume below.</p>
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+        <a id="resume-download" class="resume-btn resume-btn-primary" download="Gowri_Krishna_Resume.pdf">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </a>
+        <a id="resume-newtab" class="resume-btn resume-btn-outline" target="_blank">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Open in New Tab
+        </a>
+      </div>
+    </div>
+    <div class="resume-frame-wrap">
+      <iframe id="resume-iframe" title="Gowri Krishna Resume"></iframe>
+    </div>
+  </div>
+</section>
+ 
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap reveal">
+    <div class="section-label">// let's talk</div>
+    <h2 class="section-title">Get in <span>Touch</span></h2>
+    <p class="contact-desc">Open to internships, research collaborations, and cool projects. Drop a message — I respond fast.</p>
+    <div class="contact-links">
+      <a href="mailto:gowrikrishna985@gmail.com" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+      <a href="tel:9188728174" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.78 1.05 2 2 0 012.76 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +91 91887 28174
+      </a>
+      <a href="https://github.com/gowrikrishna985" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+ 
+<footer>
+  <p>Gowri Krishna &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; <span style="color:var(--accent)">AI & DS Portfolio</span></p>
+</footer>
+ 
+<script src="script.js"></script>
+</body>
+</html>
