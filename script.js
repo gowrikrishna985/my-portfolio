@@ -1,3 +1,52 @@
+// Apply chatbot styles to ensure visibility
+function applyChatbotStyles() {
+  const widget = document.getElementById('chatbot-widget');
+  const toggle = document.getElementById('chat-toggle');
+  const window_elem = document.getElementById('chat-window');
+  
+  if (widget) {
+    widget.style.cssText = `
+      position: fixed !important;
+      bottom: 2rem !important;
+      right: 2rem !important;
+      z-index: 999 !important;
+    `;
+  }
+  if (toggle) {
+    toggle.style.cssText = `
+      width: 56px !important;
+      height: 56px !important;
+      border-radius: 50% !important;
+      background: #00f0ff !important;
+      color: #050810 !important;
+      font-size: 1.4rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      cursor: pointer !important;
+      box-shadow: 0 0 25px rgba(0,240,255,0.5) !important;
+      transition: transform 0.2s !important;
+      border: none !important;
+    `;
+  }
+  if (window_elem) {
+    window_elem.style.cssText = `
+      position: absolute !important;
+      bottom: 5.5rem !important;
+      right: 0 !important;
+      width: 340px !important;
+      border-radius: 12px !important;
+      overflow: hidden !important;
+      background: var(--surface) !important;
+      border: 1px solid var(--border) !important;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5) !important;
+      display: none !important;
+      flex-direction: column !important;
+    `;
+  }
+}
+applyChatbotStyles();
+
 const cur = document.getElementById('cursor');
 const ring = document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
