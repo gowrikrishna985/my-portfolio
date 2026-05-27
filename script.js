@@ -78,7 +78,12 @@ async function sendMessage() {
   chatMessages.scrollTop = chatMessages.scrollHeight;
 
   try {
-    const res = await fetch('http://localhost:3000/chat', {
+    // Detect environment: localhost for development, Vercel for production
+    const chatUrl = window.location.hostname === 'localhost' 
+      ? 'http://localhost:3000/chat'
+      : '/api/chat';
+    
+    const res = await fetch(chatUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: msg })
