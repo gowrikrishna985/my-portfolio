@@ -97,56 +97,89 @@ if(dlBtn) dlBtn.href = pdfDataUrl;
 const ntBtn = document.getElementById('resume-newtab');
 if(ntBtn) ntBtn.href = pdfDataUrl;
 
-// CHATBOT
-const chatToggle = document.getElementById('chat-toggle');
-const chatWindow = document.getElementById('chat-window');
-const chatClose = document.getElementById('chat-close');
-const chatInput = document.getElementById('chat-input');
-const chatSend = document.getElementById('chat-send');
-const chatMessages = document.getElementById('chat-messages');
-
-chatToggle.addEventListener('click', () => {
-  chatWindow.classList.toggle('open');
-});
-
-chatClose.addEventListener('click', () => {
-  chatWindow.classList.remove('open');
-});
-
-async function sendMessage() {
-  const msg = chatInput.value.trim();
-  if (!msg) return;
-
-  chatInput.value = '';
-  chatMessages.innerHTML += `<div class="msg user">${msg}</div>`;
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-
-  const loadingMsg = document.createElement('div');
-  loadingMsg.className = 'msg loading';
-  loadingMsg.textContent = 'Thinking...';
-  chatMessages.appendChild(loadingMsg);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
-
-  try {
-    const response = await fetch('http://localhost:3000/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: msg })
-    });
-    const data = await response.json();
-    loadingMsg.remove();
-    chatMessages.innerHTML += `<div class="msg bot">${data.reply}</div>`;
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  } catch (err) {
-    loadingMsg.textContent = 'Error: Backend not running. Start Node.js server (node server.js)';
-    console.error(err);
+// CHATBOT - Initialize immediately and on DOMContentLoaded
+function setupChatbot() {
+  const chatToggle = document.getElementById('chat-toggle');
+  const chatWindow = document.getElementById('chat-window');
+  const chatClose = document.getElementById('chat-close');
+  const chatInput = document.getElementById('chat-input');
+  const chatSend = document.getElementById('chat-send');
+  const chatMessages = document.getElementById('chat-messages');
+  
+  if (!chatSend || !chatInput) {
+    return false; // elements not ready
   }
+
+  async function sendMessage(e) {
+    if (e) e.preventDefault();
+    const msg = chatInput.value.trim();
+    if (!msg) return;
+
+    chatInput.value = '';
+    chatMessages.innerHTML += `<div class="msg user">${msg}</div>`;
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    const loadingMsg = document.createElement('div');
+    loadingMsg.className = 'msg loading';
+    loadingMsg.textContent = 'Thinking...';
+    chatMessages.appendChild(loadingMsg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    try {
+      const response = await fetch('http://localhost:3000/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg })
+      });
+      const data = await response.json();
+      loadingMsg.remove();
+      if (data.reply) {
+        chatMessages.innerHTML += `<div class="msg bot">${data.reply}</div>`;
+      }
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    } catch (err) {
+      loadingMsg.textContent = 'Error: Backend not running';
+      console.error(err);
+    }
+  }
+
+  // Use both onclick and addEventListener
+  if (chatToggle) {
+    chatToggle.onclick = () => chatWindow.classList.toggle('open');
+    chatToggle.addEventListener('click', () => chatWindow.classList.toggle('open'));
+  }
+  if (chatClose) {
+    chatClose.onclick = () => chatWindow.classList.remove('open');
+    chatClose.addEventListener('click', () => chatWindow.classList.remove('open'));
+  }
+  
+  chatSend.onclick = sendMessage;
+  chatSend.addEventListener('click', sendMessage);
+  
+  chatInput.onkeypress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      sendMessage();
+    }
+  };
+  chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+  
+  return true;
 }
 
-chatSend.addEventListener('click', sendMessage);
-chatInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') sendMessage();
-});
+// Try to setup immediately
+if (!setupChatbot()) {
+  // If failed, wait for DOM
+  document.addEventListener('DOMContentLoaded', setupChatbot);
+  // Also try again after a delay
+  setTimeout(setupChatbot, 100);
+  setTimeout(setupChatbot, 500);
+}
 
 // ── Neural Network Animation ──────────────────────────────
 (function(){
