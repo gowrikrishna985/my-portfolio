@@ -277,3 +277,60 @@
     body { cursor: auto; }
     .cursor, .cursor-ring { display: none; }
   }
+
+  /* CHATBOT */
+#chatbot-widget { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; }
+.chat-toggle {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--accent); color: #050810;
+  font-size: 1.4rem; display: flex; align-items: center; justify-content: center;
+  cursor: pointer; box-shadow: 0 0 25px rgba(0,240,255,0.5);
+  transition: transform 0.2s; border: none;
+}
+.chat-toggle:hover { transform: scale(1.1); }
+.chat-window {
+  position: absolute; bottom: 5.5rem; right: 0; width: 340px;
+  border-radius: 12px; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  display: none; flex-direction: column;
+}
+.chat-window.open { display: flex; }
+.chat-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 1.2rem; background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--accent);
+}
+.chat-close {
+  background: none; border: none; color: var(--muted);
+  cursor: pointer; font-size: 1rem; padding: 0; width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+}
+.chat-messages {
+  padding: 1rem; display: flex; flex-direction: column;
+  gap: 0.75rem; max-height: 320px; overflow-y: auto;
+}
+.msg {
+  padding: 0.65rem 0.9rem; border-radius: 8px;
+  font-size: 0.83rem; line-height: 1.6; max-width: 85%;
+}
+.msg.bot { background: var(--surface2); color: var(--text); align-self: flex-start; }
+.msg.user { background: var(--accent); color: #050810; align-self: flex-end; font-weight: 600; }
+.msg.loading { color: var(--muted); font-style: italic; }
+.chat-input-wrap {
+  display: flex; border-top: 1px solid var(--border);
+}
+.chat-input-wrap input {
+  flex: 1; padding: 0.8rem 1rem; background: transparent;
+  border: none; outline: none; color: var(--text);
+  font-family: 'Syne', sans-serif; font-size: 0.85rem;
+}
+.chat-input-wrap input::placeholder { color: var(--muted); }
+#chat-send {
+  padding: 0.8rem 1.2rem; background: var(--accent);
+  border: none; color: #050810; font-family: 'Space Mono', monospace;
+  font-size: 0.75rem; font-weight: 700; cursor: pointer;
+  transition: background 0.2s;
+}
+#chat-send:hover { background: #00c8d4; }

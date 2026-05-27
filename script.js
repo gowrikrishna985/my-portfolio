@@ -48,6 +48,57 @@ if(dlBtn) dlBtn.href = pdfDataUrl;
 const ntBtn = document.getElementById('resume-newtab');
 if(ntBtn) ntBtn.href = pdfDataUrl;
 
+// CHATBOT
+const chatToggle = document.getElementById('chat-toggle');
+const chatWindow = document.getElementById('chat-window');
+const chatClose = document.getElementById('chat-close');
+const chatInput = document.getElementById('chat-input');
+const chatSend = document.getElementById('chat-send');
+const chatMessages = document.getElementById('chat-messages');
+
+chatToggle.addEventListener('click', () => {
+  chatWindow.classList.toggle('open');
+});
+
+chatClose.addEventListener('click', () => {
+  chatWindow.classList.remove('open');
+});
+
+async function sendMessage() {
+  const msg = chatInput.value.trim();
+  if (!msg) return;
+
+  chatInput.value = '';
+  chatMessages.innerHTML += `<div class="msg user">${msg}</div>`;
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+
+  const loadingMsg = document.createElement('div');
+  loadingMsg.className = 'msg loading';
+  loadingMsg.textContent = 'Thinking...';
+  chatMessages.appendChild(loadingMsg);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+
+  try {
+    const response = await fetch('http://localhost:3000/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg })
+    });
+    const data = await response.json();
+    loadingMsg.remove();
+    chatMessages.innerHTML += `<div class="msg bot">${data.reply}</div>`;
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  } catch (err) {
+    loadingMsg.textContent = 'Error: Backend not running. Start Node.js server (node server.js)';
+    console.error(err);
+  }
+}
+
+chatSend.addEventListener('click', sendMessage);
+chatInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') sendMessage();
+});
+
 // ── Neural Network Animation ──────────────────────────────
 (function(){
   const canvas = document.getElementById('nn-canvas');
@@ -196,3 +247,36 @@ if(ntBtn) ntBtn.href = pdfDataUrl;
   window.addEventListener('resize', () => { nodes = buildNodes(); edges = getEdges(); });
   draw();
 })();
+
+// CHATBOT
+function toggleChat() {
+  document.getElementById('chat-window').classList.toggle('open');
+}
+
+async function sendMsg() {
+  const input = document.getElementById('chat-input');
+  const messages = document.getElementById('chat-messages');
+  const text = input.value.trim();
+  if (!text) return;
+
+  messages.innerHTML += `<div class="msg user">${text}</div>`;
+  input.value = '';
+
+  const loadId = 'load-' + Date.now();
+  messages.innerHTML += `<div class="msg bot loading" id="${loadId}">⚡ Thinking...</div>`;
+  messages.scrollTop = messages.scrollHeight;
+
+  try {
+    const res = await fetch('http://localhost:3000/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text })
+    });
+    const data = await res.json();
+    document.getElementById(loadId).remove();
+    messages.innerHTML += `<div class="msg bot">${data.reply}</div>`;
+  } catch {
+    document.getElementById(loadId).textContent = '❌ Server not running. Start it with: node server.js';
+  }
+  messages.scrollTop = messages.scrollHeight;
+}
