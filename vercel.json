@@ -1,0 +1,7 @@
+{
+  "name": "gowri-portfolio",
+  "version": 2,
+  "public": true,
+  "buildCommand": "echo 'No build needed for static site'",
+  "outputDirectory": "."
+}
