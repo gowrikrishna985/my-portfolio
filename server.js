@@ -44,7 +44,7 @@ app.post('/chat', async (req, res) => {
 
   try {
     const response = await groq.chat.completions.create({
-      model: 'llama3-8b-8192',
+      model: 'llama-3.1-70b-versatile',
       max_tokens: 300,
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
