@@ -90,9 +90,13 @@ async function sendMessage() {
     });
     const data = await res.json();
     loading.remove();
-    chatMessages.innerHTML += `<div class="msg bot">${data.reply}</div>`;
+    if (data.reply) {
+      chatMessages.innerHTML += `<div class="msg bot">${data.reply}</div>`;
+    } else {
+      chatMessages.innerHTML += `<div class="msg bot">❌ Sorry, something went wrong. Please try again.</div>`;
+    }
   } catch {
-    loading.textContent = '❌ Server not running. Run: node server.js';
+    loading.textContent = '❌ Unable to connect. Please try again later.';
   }
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
