@@ -1,10 +1,6 @@
 {
-  "name": "gowri-portfolio",
   "version": 2,
   "public": true,
-  "env": {
-    "GROQ_API_KEY": "@groq_api_key"
-  },
   "functions": {
     "api/**.[jt]s": {
       "memory": 1024,
