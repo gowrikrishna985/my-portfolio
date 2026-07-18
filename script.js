@@ -5,7 +5,7 @@ let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
 function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); }
 animRing();
-document.querySelectorAll('a,button,.project-card,.about-pill').forEach(el=>{
+document.querySelectorAll('a,button,.project-card,.about-pill,.chat-toggle').forEach(el=>{
   el.addEventListener('mouseenter',()=>{ cur.style.width='16px'; cur.style.height='16px'; ring.style.width='52px'; ring.style.height='52px'; });
   el.addEventListener('mouseleave',()=>{ cur.style.width='10px'; cur.style.height='10px'; ring.style.width='36px'; ring.style.height='36px'; });
 });
@@ -44,14 +44,35 @@ function typeIt(){ if(idx<txt.length){ tag.textContent+=txt[idx++]; setTimeout(t
 setTimeout(typeIt,400);
 
 // ── Resume PDF ────────────────────────────────────────────
-const pdfB64 = 'JVBERi0xLjQKJdPr6eEKMSAwIG9iago8PC9UaXRsZSAoYXBwLmZsb3djdi5jb20vcmVzdW1lLXBkZi1wYWdlLTc3MDcxNzFjY2QwMDRmYjM3NzE2YmU5ZjkxOWViMjRlOWE3ODg4NTcpCi9DcmVhdG9yIChNb3ppbGxhLzUuMCBcKFgxMTsgTGludXggeDg2XzY0XCkgQXBwbGVXZWJLaXQvNTM3LjM2IFwoS0hUTUwsIGxpa2UgR2Vja29cKSBIZWFkbGVzc0Nocm9tZS8xNDUuMC4wLjAgU2FmYXJpLzUzNy4zNikKL1Byb2R1Y2VyIChTa2lhL1BERiBtMTQ1KQovQ3JlYXRpb25EYXRlIChEOjIwMjYwMzA2MTcxMDQ3KzAwJzAwJykKL01vZERhdGUgKEQ6MjAyNjAzMDYxNzEwNDcrMDAnMDAnKT4+CmVuZG9iagozIDAgb2JqCjw8L2NhIDEKL0JNIC9Ob3JtYWw+PgplbmRvYmoKNyAwIG9iago8PC9UeXBlIC9Bbm5vdAovU3VidHlwZSAvTGluawovRiA0Ci9Cb3JkZXIgWzAgMCAwXQovUmVjdCBbODYuMjUgNzU3LjE2OTk4IDIyOC43NSA3NzguOTE5OThdCi9BIDw8L1R5cGUgL0FjdGlvbgovUyAvVVJJCi9VUkkgKG1haWx0bzpnb3dyaWtyaXNobmE5ODVAZ21haWwuY29tKT4+Ci9TdHJ1Y3RQYXJlbnQgMTAwMDAwPj4KZW5kb2JqCjggMCBvYmoKPDwvVHlwZSAvQW5ub3QKL1N1YnR5cGUgL0xpbmsKL0YgNAovQm9yZGVyIFswIDAgMF0KL1JlY3QgWzIzOS4yNSA3NTcuMTY5OTggMzAwLjc1IDc3OC45MTk5OF0KL0EgPDwvVHlwZSAvQWN0aW9uCi9TIC9VUkkKL1VSSSAodGVsOjkxODg3MjgxNzQpPj4KL1N0cnVjdFBhcmVudCAxMDAwMDE+PgplbmRvYmoKOSAwIG9iago8PC9UeXBlIC9Bbm5vdAovU3VidHlwZSAvTGluawovRiA0Ci9Cb3JkZXIgWzAgMCAwXQovUmVjdCBbMjY0IDczNi4xNjk5OCA0MDQuMjUgNzU4LjY2OTk4XQovQSA8PC9UeXBlIC9BY3Rpb24KL1MgL1VSSQovVVJJIChodHRwczovL2dpdGh1Yi5jb20vZ293cmlrcmlzaG5hOTg1KT4+Ci9TdHJ1Y3RQYXJlbnQgMTAwMDAyPj4KZW5kb2JqCg==';
-const pdfDataUrl = 'data:application/pdf;base64,' + pdfB64;
+// Using Google Drive embed for reliable cross-browser PDF display
+// Replace GOOGLE_DRIVE_FILE_ID below with your actual Google Drive PDF file ID
+// To get it: Upload PDF to Google Drive → Share (Anyone with link) → copy the ID from the URL
+// URL format: https://drive.google.com/file/d/FILE_ID/view
+const GOOGLE_DRIVE_FILE_ID = 'YOUR_GOOGLE_DRIVE_FILE_ID'; // <-- Replace this
+
 const iframe = document.getElementById('resume-iframe');
-if(iframe) iframe.src = pdfDataUrl;
-const dlBtn = document.getElementById('resume-download');
-if(dlBtn) dlBtn.href = pdfDataUrl;
-const ntBtn = document.getElementById('resume-newtab');
-if(ntBtn) ntBtn.href = pdfDataUrl;
+const dlBtn  = document.getElementById('resume-download');
+const ntBtn  = document.getElementById('resume-newtab');
+
+if (GOOGLE_DRIVE_FILE_ID && GOOGLE_DRIVE_FILE_ID !== 'YOUR_GOOGLE_DRIVE_FILE_ID') {
+  const embedUrl   = `https://drive.google.com/file/d/${GOOGLE_DRIVE_FILE_ID}/preview`;
+  const downloadUrl = `https://drive.google.com/uc?export=download&id=${GOOGLE_DRIVE_FILE_ID}`;
+  const viewUrl    = `https://drive.google.com/file/d/${GOOGLE_DRIVE_FILE_ID}/view`;
+  if (iframe) iframe.src = embedUrl;
+  if (dlBtn)  dlBtn.href = downloadUrl;
+  if (ntBtn)  ntBtn.href = viewUrl;
+} else {
+  // Fallback: show placeholder message in iframe
+  if (iframe) {
+    iframe.srcdoc = `<html><body style="margin:0;background:#0b1120;display:flex;align-items:center;justify-content:center;height:100%;font-family:monospace;color:#64748b;text-align:center;">
+      <div>
+        <div style="font-size:3rem;margin-bottom:1rem;">📄</div>
+        <div style="color:#00f0ff;font-size:1rem;margin-bottom:0.5rem;">Resume coming soon</div>
+        <div style="font-size:0.8rem;">Use the Download or Open in New Tab buttons above</div>
+      </div>
+    </body></html>`;
+  }
+}
 
 // ── Chatbot ───────────────────────────────────────────────
 const chatToggle = document.getElementById('chat-toggle');
