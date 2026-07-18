@@ -48,7 +48,7 @@ setTimeout(typeIt,400);
 // Replace GOOGLE_DRIVE_FILE_ID below with your actual Google Drive PDF file ID
 // To get it: Upload PDF to Google Drive → Share (Anyone with link) → copy the ID from the URL
 // URL format: https://drive.google.com/file/d/FILE_ID/view
-const GOOGLE_DRIVE_FILE_ID = 'YOUR_GOOGLE_DRIVE_FILE_ID'; // <-- Replace this
+const GOOGLE_DRIVE_FILE_ID = '1Yo3BVJ3YbKeIbV98Dt2I0l2W8PBW6hjB';
 
 const iframe = document.getElementById('resume-iframe');
 const dlBtn  = document.getElementById('resume-download');
